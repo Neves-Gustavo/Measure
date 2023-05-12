@@ -4,27 +4,23 @@ import utlis
 
 import numpy as np
 import cv2
-
-# Open a sample video available in sample-videos
-vcap = cv2.VideoCapture('https://192.168.15.9:1024/video')
-#if not vcap.isOpened():
-#    print "File Cannot be Opened"
+ip = input("Digite o IP: ")
+# Abre a Camera
+vcap = cv2.VideoCapture('https://'+ip+':1024/video')
 
 while(True):
-    # Capture frame-by-frame
+    # Captura o Frame
     ret, frame = vcap.read()
-    #print cap.isOpened(), ret
     if frame is not None:
-        # Display the resulting frame
+        # Mostra a Janela com o Frame
         cv2.imshow('frame',frame)
-        # Press q to close the video windows before it ends if you want
+        # Aperta Q para Sair
         if cv2.waitKey(22) & 0xFF == ord('q'):
             break
     else:
         print ("Frame is None")
         break
 
-# When everything done, release the capture
 vcap.release()
 cv2.destroyAllWindows()
 print ("Video stop")
