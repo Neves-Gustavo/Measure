@@ -1,22 +1,21 @@
 import cv2
-  
 cap = cv2.VideoCapture(0)
 if cap.isOpened() is False:
     print("Erro ao encontrar camera")
-    ip = input((print("Insira o IP da camera: ")))
-    cap = cv2.VideoCapture('http://'+ip+':8080/video')
+    ip = input("Digite o Ip da camera: ")
+    cap = cv2.VideoCapture('https://'+ip+':8080/video')
 ret, frame = cap.read()
 img_name = "1.png".format(0)
 img = cv2.imwrite(img_name, frame)
 # Distancia Medida da moeda até a camera
 # Centimetros
-t = input(print("Distancia do rosto até a camera: "))
+t = input("Distancia do rosto até a camera: ")
 t = int(t)
 Known_distance = t
   
 # Diametro do rosto em tamanho real
 # Centimetros
-i = input(print("diametro do rosto: "))
+i = input("diametro do rosto: ")
 i = int(i)
 Known_width = i
   
@@ -92,6 +91,10 @@ cv2.imshow("ref_image", ref_image)
   
 # inicializa a camera para mostrar o frame
 cap = cv2.VideoCapture(0)
+if cap.isOpened() is False:
+    print("Erro ao encontrar camera")
+    ip = input("Digite o Ip da camera: ")
+    cap = cv2.VideoCapture('https://'+ip+':8080/video')
   
 # ciclo atravez do frame obtido pela camera
 while True:
