@@ -122,7 +122,7 @@ while True:
   
         # Escreve texto no frame
         cv2.putText(
-            frame, f"Distance: {round(Distance,2)} CM", (30, 35), 
+            frame, f"Distancia: {round(Distance,2)} CM", (30, 35), 
           fonts, 0.6, GREEN, 2)
   
     # mostra o frame
