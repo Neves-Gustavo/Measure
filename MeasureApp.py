@@ -93,7 +93,6 @@ cv2.imshow("ref_image", ref_image)
 cap = cv2.VideoCapture(0)
 if cap.isOpened() is False:
     print("Erro ao encontrar camera")
-    ip = input("Digite o Ip da camera: ")
     cap = cv2.VideoCapture('https://'+ip+':8080/video')
   
 # ciclo atravez do frame obtido pela camera
